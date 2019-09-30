@@ -5,7 +5,7 @@
 
  name: NB CBL ADMIN JS
  
- description: enqueue scripts hook for JavaScript Features on Materials CPTs
+ description: enqueue scripts hook for JavaScript Features on Resources CPTs
  
  params: $hook = the page that is being hooked, for example: post.php. 
  
@@ -17,16 +17,16 @@
 //ENQUE SCRIPTS  
 function the_lib_admin_js( $hook ) {
 	global $post_type;
-	if( ( ( $hook == 'post.php' ) || ( $hook == 'post-new.php' ) ) && ( $post_type == 'lib_material' ) ){
+	if( ( ( $hook == 'post.php' ) || ( $hook == 'post-new.php' ) ) && ( $post_type == NNLIB_PREFIX.'resource' ) ){
 		
 	
 		if ( is_admin() ) {
 			wp_enqueue_script( 'jquery' );
 			//adding scripts file in the footer
-			wp_register_script( 'admin-js', plugins_url( '/admin.js', __FILE__ ) , array( 'jquery' ), false, true );
-			wp_enqueue_script( 'admin-js' );
+			wp_register_script( 'js-js', plugins_url( '/admin/js.js', __FILE__ ) , array( 'jquery' ), false, true );
+			wp_enqueue_script( 'js-js' );
 			
-			wp_enqueue_style('admin-css',  plugins_url( '/admin.css', __FILE__ ) );
+			wp_enqueue_style('style-css',  plugins_url( '/admin/style.css', __FILE__ ) );
 		} 
 		
 	}
