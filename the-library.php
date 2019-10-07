@@ -66,6 +66,8 @@ if( !class_exists( 'The_Library' ) ){
 			/*	$email_settings = new init\Email();		//Email Settings
 				 */
 			 
+			
+			 
 			//setup Custom Post Types
 			$this->set_cpts();
 			
@@ -139,6 +141,9 @@ if( !class_exists( 'The_Library' ) ){
 				wp_die( __( 'Please install and Activate The NN_Network plugin.', 'nnlib-addon-slug' ), 'Missing Plugin Requred', array( 'back_link' => true ) );
 			}
 			
+			//Add new roles
+			$roles = new init\Roles(); 
+			
 			//Setup Custom Post Types
 			$this->set_cpts();
 			
@@ -209,14 +214,16 @@ if( !class_exists( 'The_Library' ) ){
 }	
 
 //Add User Access Scripts 
-//include_once('func/the_lib_access.php'); 
+include_once('func/access.php'); 
+
+//Initiate Plugin
+$the_library = new The_Library();
 
 //Add Custom Meta Boxes.
 //include_once('func/the_lib_meta_box.php');
 
 
 
-$the_library = new The_Library();
 
 
 /* 
